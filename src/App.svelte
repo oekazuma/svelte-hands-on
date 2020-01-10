@@ -1,30 +1,40 @@
 <script>
-	export let name;
+import Router from 'svelte-spa-router'
+import Index from './routes/index.svelte'
+import HelloWorld from './routes/helloWorld.svelte'
+import Function from './routes/function.svelte'
+import ReActive from './routes/reActive.svelte'
+import Form from './routes/form.svelte'
+import If from './routes/if.svelte'
+import List from './routes/list.svelte'
+import Transition from './routes/transition.svelte'
+
+
+const routes = {
+    '/': Index,
+    '/helloWorld/': HelloWorld,
+    '/function': Function,
+    '/reActive': ReActive,
+    '/form': Form,
+    '/if': If,
+    '/list': List,
+    '/transition': Transition
+}
 </script>
 
-<main>
-	<h1>Hello {name}!</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
-</main>
-
 <style>
-	main {
-		text-align: center;
-		padding: 1em;
-		max-width: 240px;
-		margin: 0 auto;
-	}
-
-	h1 {
-		color: #ff3e00;
-		text-transform: uppercase;
-		font-size: 4em;
-		font-weight: 100;
-	}
-
-	@media (min-width: 640px) {
-		main {
-			max-width: none;
-		}
-	}
+body {
+  margin: 0;
+  padding: 0 15px 15px;
+  font-family: "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #34495e;
+  text-align: center;
+  }
 </style>
+
+<body>
+    <Router {routes}/>
+</body>
