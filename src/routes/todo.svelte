@@ -1,0 +1,4 @@
+<script>
+  let todoList = [];
+  
+</script>

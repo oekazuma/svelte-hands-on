@@ -1,53 +1,64 @@
 <script>
 import {link} from 'svelte-spa-router';
-let src = 'images/svelte512.png';
+import { onMount } from 'svelte';
+
+const keyCheckedCurriculum = 'CHECKED_CURRICULUM_LIST';
+const src = 'images/svelte512.png';
 
 let curriculumList = [
   {
     id: 1,
     label: 'SvelteでHelloWorld!',
     code: '/helloWorld',
-    reference: ''
+    reference: '',
+    completed: false
   },
   {
     id: 2,
     label: '関数を作ってみよう！',
     code: '/function',
-    reference: ''
+    reference: '',
+    completed: false
   },
   {
     id: 3,
     label: '変数をリアクティブにしよう！',
     code: '/reActive',
-    reference: ''
+    reference: '',
+    completed: false
   },
   {
     id: 4,
     label: 'フォームを作ってみよう！',
     code: '/form',
-    reference: ''
+    reference: '',
+    completed: false
   },
   {
     id: 5,
     label: '条件分岐をしてみよう！',
     code: '/if',
-    reference: ''
+    reference: '',
+    completed: false
   },
   {
     id: 6,
     label: 'Svelteでリスト表示をしてみよう！',
     code: '/list',
-    reference: ''
+    reference: '',
+    completed: false
   },
   {
     id: 7,
     label: 'Svelteでアニメーション！',
     code: '/transition',
-    reference: ''
+    reference: '',
+    completed: false
   }
 ];
 
-let carriedOut = [];
+
+
 
 </script>
 
@@ -126,7 +137,7 @@ a {
   {#each curriculumList as curriculum}
     <li class="curriculum-list_item">
       <label class="curriculum-list_item-check">
-        <input type="checkbox" bind:value={curriculum.id}>
+        <input type="checkbox" bind:value={curriculum.id} bind:checked={curriculum.completed}>
         <span class="curriculum-list_item-label">
           {curriculum.id}. {curriculum.label}
         </span>
