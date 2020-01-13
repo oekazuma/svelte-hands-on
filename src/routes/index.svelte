@@ -126,7 +126,7 @@ a {
   
   <h1><img {src} alt="svelte image"  width="50" height="50"/>Svelte ハンズオン</h1>
   <p>
-    今回作るもの： <a href="/" target="_blank">簡易 TODO リスト</a>
+    今回作るもの： <a href="/todo" use:link>簡易 TODO リスト</a>
   </p>
 
   <p style="margin-top:30px;">

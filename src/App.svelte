@@ -8,6 +8,7 @@ import Form from './routes/form.svelte'
 import If from './routes/if.svelte'
 import List from './routes/list.svelte'
 import Transition from './routes/transition.svelte'
+import Todo from './routes/todo.svelte'
 
 
 const routes = {
@@ -18,7 +19,8 @@ const routes = {
     '/form': Form,
     '/if': If,
     '/list': List,
-    '/transition': Transition
+    '/transition': Transition,
+    '/todo': Todo
 }
 </script>
 
