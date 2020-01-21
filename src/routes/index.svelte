@@ -63,6 +63,27 @@
     }
   ];
 
+  let bonuses = [
+    {
+      url: 'https://sapper.svelte.dev/',
+      title: 'Sapper',
+      color: '#159794',
+      description: '(環境構築・SSR・静的化などができるNext.jsやNuxt.jsのようなFW)'
+    },
+    {
+      url: 'https://svelte-native.technology/',
+      title: 'Svelte Native',
+      color: '#3C5AFD',
+      description: '(React Naitiveのようなネイティブモバイルアプリを作ることができるFW)'
+    },
+    {
+      url: 'https://qiita.com/tags/svelte',
+      title: 'Qiita',
+      color: '#54C500',
+      description: '(QiitaのSvelte記事一覧)'
+    }
+  ]
+
   let curriculums = JSON.parse(localStorage.getItem("curriculumList") || JSON.stringify(curriculumList));
 
   function completedSave() {
@@ -148,7 +169,7 @@ a {
   </p>
 
   <p style="margin-top:30px;">
-    参加した、または実施した内容にチェックしましょう！
+    終わったらチェックしましょう！　全部クリアすると...
   </p>
 
   <ul class="curriculum-list">
@@ -181,9 +202,14 @@ a {
       <p style="margin-top:30px; font-weight:bold;">
         おまけ
       </p>
-      <p><a href="https://sapper.svelte.dev/" style="color:#159794">Sapper</a>(環境構築・SSR・静的化などができるNext.jsやNuxt.jsのようなFW)</p>
-      <p><a href="https://sapper.svelte.dev/" style="color:#3C5AFD">Svelte Native</a>(React Naitiveのようなネイティブモバイルアプリを作ることができるFW)</p>
-      <p><a href="https://qiita.com/tags/svelte" style="color:#54C500">Qiita</a>(QiitaのSvelte記事一覧)</p>
+      {#each bonuses as bonus}
+        <p>
+          <a href={bonus.url} style="color:{bonus.color}">
+            {bonus.title}
+          </a>
+          {bonus.description}
+        </p>
+      {/each}
     </div>
   {/if}
 </div>
