@@ -1,64 +1,73 @@
 <script>
-import {link} from 'svelte-spa-router';
-import { onMount } from 'svelte';
+  import {link} from 'svelte-spa-router';
+  import { fade } from 'svelte/transition';
 
-const keyCheckedCurriculum = 'CHECKED_CURRICULUM_LIST';
-const src = 'images/svelte512.png';
+  const src = 'images/svelte512.png';
 
-let curriculumList = [
-  {
-    id: 1,
-    label: 'SvelteでHelloWorld!',
-    code: '/helloWorld',
-    reference: '',
-    completed: false
-  },
-  {
-    id: 2,
-    label: '関数を作ってみよう！',
-    code: '/function',
-    reference: '',
-    completed: false
-  },
-  {
-    id: 3,
-    label: '変数をリアクティブにしよう！',
-    code: '/reActive',
-    reference: '',
-    completed: false
-  },
-  {
-    id: 4,
-    label: 'フォームを作ってみよう！',
-    code: '/form',
-    reference: '',
-    completed: false
-  },
-  {
-    id: 5,
-    label: '条件分岐をしてみよう！',
-    code: '/if',
-    reference: '',
-    completed: false
-  },
-  {
-    id: 6,
-    label: 'Svelteでリスト表示をしてみよう！',
-    code: '/list',
-    reference: '',
-    completed: false
-  },
-  {
-    id: 7,
-    label: 'Svelteでアニメーション！',
-    code: '/transition',
-    reference: '',
-    completed: false
+  let curriculumList = [
+    {
+      id: 1,
+      label: 'SvelteでHelloWorld!',
+      code: '/helloWorld',
+      sample: '',
+      completed: false
+    },
+    {
+      id: 2,
+      label: '関数を作ってみよう！',
+      code: '/function',
+      sample: '',
+      completed: false
+    },
+    {
+      id: 3,
+      label: '変数をリアクティブにしよう！',
+      code: '/reActive',
+      sample: '',
+      completed: false
+    },
+    {
+      id: 4,
+      label: 'フォームを作ってみよう！',
+      code: '/form',
+      sample: '',
+      completed: false
+    },
+    {
+      id: 5,
+      label: '条件分岐をしてみよう！',
+      code: '/if',
+      sample: '',
+      completed: false
+    },
+    {
+      id: 6,
+      label: 'Svelteでリスト表示をしてみよう！',
+      code: '/list',
+      sample: '',
+      completed: false
+    },
+    {
+      id: 7,
+      label: 'Svelteでアニメーション！',
+      code: '/transition',
+      sample: '',
+      completed: false
+    },
+    {
+      id: 8,
+      label: 'TodoListを作ってみよう！',
+      code: '/todo',
+      sample: '/todoSample',
+      completed: false
+    }
+  ];
+
+  let curriculums = JSON.parse(localStorage.getItem("curriculumList") || JSON.stringify(curriculumList));
+
+  function completedSave() {
+    localStorage.setItem("curriculumList", JSON.stringify(curriculums));
   }
-];
-
-
-
 
 </script>
 
@@ -120,13 +129,22 @@ a {
   align-items: center;
   margin-left: .5em;
 }
+
+.Congratulations {
+  font-family: 'Comic Sans MS', cursive;
+	font-size: 2em;
+}
+
+.expansion {
+  margin-top:30px;
+}
 </style>
 
 <div id="wrapper">
   
   <h1><img {src} alt="svelte image"  width="50" height="50"/>Svelte ハンズオン</h1>
   <p>
-    今回作るもの： <a href="/todo" use:link>簡易 TODO リスト</a>
+    参考： <a href="https://svelte.dev/docs" target="_blank">公式ドキュメント</a>
   </p>
 
   <p style="margin-top:30px;">
@@ -134,25 +152,38 @@ a {
   </p>
 
   <ul class="curriculum-list">
-  {#each curriculumList as curriculum}
+  {#each curriculums as curriculum}
     <li class="curriculum-list_item">
       <label class="curriculum-list_item-check">
-        <input type="checkbox" bind:value={curriculum.id} bind:checked={curriculum.completed}>
+        <input type="checkbox" bind:value={curriculum.id} bind:checked={curriculum.completed} on:change={completedSave}>
         <span class="curriculum-list_item-label">
           {curriculum.id}. {curriculum.label}
         </span>
       </label>
       <span class="curriculum-list_item-link-to-code">
         <a href={curriculum.code} use:link>
-          作るもの
+          タスク
         </a>
       </span>
       <span class="curriculum-list_item-link-to-ref">
-        <a href={curriculum.reference} target="_blank">
-          参考
+      {#if curriculum.sample}
+        <a href={curriculum.sample} use:link>
+          サンプル
         </a>
+      {/if}
       </span>
     </li>
   {/each}
   </ul>
+  {#if curriculums.every((x) => (x.completed === true ))}
+    <div class="expansion" transition:fade>
+      <span class="Congratulations">Congratulations!</span>
+      <p style="margin-top:30px; font-weight:bold;">
+        おまけ
+      </p>
+      <p><a href="https://sapper.svelte.dev/" style="color:#159794">Sapper</a>(環境構築・SSR・静的化などができるNext.jsやNuxt.jsのようなFW)</p>
+      <p><a href="https://sapper.svelte.dev/" style="color:#3C5AFD">Svelte Native</a>(React Naitiveのようなネイティブモバイルアプリを作ることができるFW)</p>
+      <p><a href="https://qiita.com/tags/svelte" style="color:#54C500">Qiita</a>(QiitaのSvelte記事一覧)</p>
+    </div>
+  {/if}
 </div>

@@ -9,6 +9,7 @@ import If from './routes/if.svelte'
 import List from './routes/list.svelte'
 import Transition from './routes/transition.svelte'
 import Todo from './routes/todo.svelte'
+import TodoSample from './routes/sample/todo.svelte'
 
 
 const routes = {
@@ -20,7 +21,8 @@ const routes = {
     '/if': If,
     '/list': List,
     '/transition': Transition,
-    '/todo': Todo
+    '/todo': Todo,
+    '/todoSample': TodoSample
 }
 </script>
 
