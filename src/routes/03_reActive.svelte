@@ -1,6 +1,6 @@
 <script>
 	let count = 0;
-	let doubled = count * 2;
+  let doubled = count * 2;
 
 	function handleClick() {
 		count += 1;

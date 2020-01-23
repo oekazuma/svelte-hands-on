@@ -1,14 +1,14 @@
 <script>
 import Router from 'svelte-spa-router'
 import Index from './routes/index.svelte'
-import HelloWorld from './routes/helloWorld.svelte'
-import Function from './routes/function.svelte'
-import ReActive from './routes/reActive.svelte'
-import Form from './routes/form.svelte'
-import If from './routes/if.svelte'
-import List from './routes/list.svelte'
-import Transition from './routes/transition.svelte'
-import Todo from './routes/todo.svelte'
+import HelloWorld from './routes/01_helloWorld.svelte'
+import Function from './routes/02_function.svelte'
+import ReActive from './routes/03_reActive.svelte'
+import Form from './routes/04_form.svelte'
+import If from './routes/05_if.svelte'
+import List from './routes/06_list.svelte'
+import Transition from './routes/07_transition.svelte'
+import Todo from './routes/08_todo.svelte'
 import TodoSample from './routes/sample/todo.svelte'
 
 

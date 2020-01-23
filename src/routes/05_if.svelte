@@ -10,7 +10,6 @@
 	<button on:click={toggle}>
 		ログアウト
 	</button>
-
 	<button on:click={toggle}>
 		ログイン
 	</button>
