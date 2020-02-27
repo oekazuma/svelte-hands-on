@@ -10,6 +10,11 @@ import List from './routes/06_list.svelte'
 import Transition from './routes/07_transition.svelte'
 import Todo from './routes/08_todo.svelte'
 import TodoSample from './routes/sample/todo.svelte'
+import Component from './routes/09_component.svelte'
+import Props from './routes/10_props.svelte'
+import Lifecycle from './routes/11_lifecycle.svelte'
+import Store from './routes/12_store.svelte'
+import BookList from './routes/13_bookList.svelte'
 
 
 const routes = {
@@ -22,7 +27,12 @@ const routes = {
     '/list': List,
     '/transition': Transition,
     '/todo': Todo,
-    '/todoSample': TodoSample
+    '/todoSample': TodoSample,
+    '/component': Component,
+    '/props': Props,
+    '/lifecycle': Lifecycle,
+    '/store': Store,
+    '/booklist': BookList
 }
 </script>
 

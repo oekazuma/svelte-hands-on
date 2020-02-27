@@ -60,6 +60,41 @@
       code: '/todo',
       sample: '/todoSample',
       completed: false
+    },
+    {
+      id: 9,
+      label: 'componentを作ってみよう！',
+      code: '/component',
+      sample: '',
+      completed: false
+    },
+    {
+      id: 10,
+      label: 'propsを使ってみよう！',
+      code: '/props',
+      sample: '',
+      completed: false
+    },
+    {
+      id: 11,
+      label: 'onMountを使ってみよう！',
+      code: '/lifecycle',
+      sample: '',
+      completed: false
+    },
+    {
+      id: 12,
+      label: 'storeを使ってみよう！',
+      code: '/store',
+      sample: '',
+      completed: false
+    },
+    {
+      id: 13,
+      label: 'BookListを作ってみよう！',
+      code: '/booklist',
+      sample: '',
+      completed: false
     }
   ];
 
